@@ -96,7 +96,7 @@ class StartButton(Button):
 class Drop(Image):
     def __init__(self, **kwargs):
         super(Drop, self).__init__(**kwargs)
-        self.source = "drop.png"
+        self.source = "images/drop.png"
 
     def set(self, position):
         self.pos = position
@@ -105,24 +105,24 @@ class Drop(Image):
 class HealthBar(Image):
     def __init__(self, **kwargs):
         super(HealthBar, self).__init__(**kwargs)
-        self.source = "2heart.png"
+        self.source = "images/2heart.png"
         self.pos = 0, Window.height*0.95-self.height
 
     def lose_health(self, health):
         if health == 4:
-            self.source = "2heart.png"
+            self.source = "images/2heart.png"
         elif health == 3:
-            self.source = "1.5heart.png"
+            self.source = "images/1.5heart.png"
         elif health == 2:
-            self.source = "heart.png"
+            self.source = "images/heart.png"
         elif health == 1:
-            self.source = "halfheart.png"
+            self.source = "images/halfheart.png"
 
 # walls to build the level design with
 class CollisionTile(Image):
     def __init__(self, **kwargs):
         super(CollisionTile, self).__init__(**kwargs)
-        self.source = "wood.png"
+        self.source = "images/wood.png"
 
     def set(self, x, y):
         self.size = Window.width/12, Window.height*0.95/12
@@ -144,7 +144,7 @@ class CollisionTile(Image):
 class MainPlayer(Image):
     def __init__(self, **kwargs):
         super(MainPlayer, self).__init__(**kwargs)
-        self.source = "watermelon1.png"
+        self.source = "images/watermelon1.png"
 
     # initialize values for player velocity
     velocity_x =  NumericProperty(0)
@@ -172,7 +172,7 @@ class MainPlayer(Image):
 class HoningEnemy(Image):
     def __init__(self, **kwargs):
         super(HoningEnemy, self).__init__(**kwargs)
-        self.source = "honingenemy.png"
+        self.source = "images/honingenemy.png"
 
     # initialize enemy velocity
     velocity_x =  NumericProperty(0)
@@ -292,7 +292,7 @@ class RoguelikeGame(Widget):
 
 
         # add widgets based on a level layout file
-        with fileinput.input(files=r'C:\Users\Josh Poole\cs2021\projects\FinalProject\level' + str(level_num) + '.txt') as f:
+        with fileinput.input(files=r'levels/level' + str(level_num) + '.txt') as f:
             row = 11
             for line in f:
                 col = 0
