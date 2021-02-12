@@ -169,10 +169,10 @@ class MainPlayer(Image):
             self.pos = Vector(*self.velocity) + self.pos
 
 # enemy that hones on player location
-class HoningEnemy(Image):
+class HomingEnemy(Image):
     def __init__(self, **kwargs):
-        super(HoningEnemy, self).__init__(**kwargs)
-        self.source = "images/honingenemy.png"
+        super(HomingEnemy, self).__init__(**kwargs)
+        self.source = "images/homingenemy.png"
 
     # initialize enemy velocity
     velocity_x =  NumericProperty(0)
@@ -305,7 +305,7 @@ class RoguelikeGame(Widget):
                         self.tiles.append(tile)
                     # $ represents an enemy
                     elif c == "$":
-                        enemy = HoningEnemy()
+                        enemy = HomingEnemy()
                         self.add_widget(enemy)
                         enemy.set(Window.width/12*col, Window.height*0.95/12*row)
                         self.enemies.append(enemy)
