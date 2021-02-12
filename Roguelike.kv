@@ -1,0 +1,118 @@
+#:kivy 1.10.1
+#: import CardTransition kivy.uix.screenmanager.CardTransition
+
+<WinLabel>:
+    text: "You Win!"
+    font_size: 75
+    color: 0, 0, 0, 1
+
+<DropLabel>
+    text: "0"
+    font_size: 50
+
+<LevelLabel>:
+    text: "Level 1"
+    font_size: 40
+    color: 0, 0, 0, 1
+
+<GameOverLabel>:
+    text: "Game Over"
+    font_size: 75
+    color: 0, 0, 0, 1
+
+<Drop>:
+    size: 50, 50
+    canvas:
+        Rectangle:
+            texture: self.texture
+            pos: self.pos
+            size: self.size
+
+<HealthBar>:
+    size: 105, 50
+    canvas:
+        Rectangle:
+            texture: self.texture
+            pos: self.pos
+            size: self.size
+
+<CollisionTile>:
+    canvas:
+        Rectangle:
+            texture: self.texture
+            pos: self.pos
+            size: self.size
+
+<HoningEnemy>:
+    size: 50, 50
+    canvas:
+        Rectangle:
+            texture: self.texture
+            pos: self.pos
+            size: self.size
+
+<MainPlayer>:
+    size: 60, 60
+    canvas:
+        Ellipse:
+            texture: self.texture
+            pos: self.pos
+            size: self.size
+
+<PlayerBullet>:
+    size: 5, 5
+    canvas:
+        Color:
+            rgb: (0, 0, 0)
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+<RoguelikeGame>:
+    canvas.before:
+        Rectangle:
+            pos: 0, 0
+            size: self.size
+            source: "blue.png"
+
+
+<ScreenManagement>:
+    MenuScreen:
+        Label:
+            font_size: 75
+            text: "Roguelike Game"
+            size_hint: 1, 0.5
+            pos: root.x, 0.5*root.height
+        BoxLayout:
+            size_hint: 1, 0.5
+            pos: root.x, root.y
+            orientation: "vertical"
+            Button:
+                on_release:
+                    app.root.transition = CardTransition(direction='up', mode="pop")
+                    app.root.current = "game_screen"
+                text: "Play Game"
+                font_size: 50
+            SettingsButton:
+                text: "Settings"
+                font_size: 50
+
+    GameScreen:
+        MasterLayout:
+            BoxLayout:
+                size_hint: 1, 0.95
+                pos: root.x, 0.1*root.height
+                RoguelikeGame:
+                    id: game
+                    size: self.parent.size
+
+            BoxLayout:
+                size_hint: 1, 0.05
+                pos: root.x, 0.95*root.height
+                orientation: "horizontal"
+                StartButton:
+                    text: "Start"
+                TitleLabel:
+                    text: "Roguelike Game"
+                SettingsButton:
+                    text: "Settings"
