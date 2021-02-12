@@ -2,6 +2,8 @@
 
 Yes, I agree it is not much of a game, much less a roguelike. However, that was my original idea when creating it. I made this sophmore year of college with very little python and general software development experience. I just thought it was cool so I put it here.
 
+All of the sprites were made by hand by me in MS Paint in case you were wondering.
+
 ## About Me
 
 - Josh Poole
